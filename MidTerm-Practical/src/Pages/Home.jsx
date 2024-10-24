@@ -1,4 +1,3 @@
-// src/pages/Home.js
 import React, { useState } from 'react';
 import MovieList from '../components/MovieLists';
 import SearchBar from '../components/SearchBar';
@@ -10,7 +9,7 @@ const Home = () => {
     { id: 3, title: "The Dark Knight", releaseDate: "2008-07-18", rating: 9.0 },
     { id: 4, title: "Fight Club", releaseDate: "1999-10-15", rating: 8.8 },
   ];
-
+console.log("movies",movies);
   const [searchResults, setSearchResults] = useState(movies);
 
   const handleSearch = (query) => {
