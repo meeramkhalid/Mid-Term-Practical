@@ -1,3 +1,5 @@
+import '../Styles/Footer.css';
+
 const Footer = () => <footer>
     <br> © Movie Explorer 2024</br>
     this site is not affliated by imdb
