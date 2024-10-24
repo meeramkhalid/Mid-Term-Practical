@@ -1,31 +1,24 @@
-import React, { useState, useContext } from 'react';
-import { GlobalContext } from '../context/GlobalContext';
+import React, { useState } from 'react';
 
-const SearchBar = ({ setMovies }) => {
-    const [query, setQuery] = useState('');
-    const { setTheme } = useContext(GlobalContext);
+const SearchBar = ({ onSearch }) => {
+  const [query, setQuery] = useState('');
 
-    const handleSearch = (e) => {
-        e.preventDefault();
-        fetch(`https://www.omdbapi.com/?s=${query}&apikey=YOUR_API_KEY`)
-            .then((response) => response.json())
-            .then((data) => {
-                setMovies(data.Search || []); 
-                setQuery('');
-            });
-    };
+  const handleSearch = () => {
+    onSearch(query);
+    setQuery('');
+  };
 
-    return (
-        <form onSubmit={handleSearch}>
-            <input
-                type="text"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search for movies..."
-            />
-            <button type="submit">Search</button>
-        </form>
-    );
+  return (
+    <div>
+      <input
+        type="text"
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        placeholder="Search for a movie..."
+      />
+      <button onClick={handleSearch}>Search</button>
+    </div>
+  );
 };
 
 export default SearchBar;

@@ -1,20 +1,17 @@
 import React, { useContext } from 'react';
-import { GlobalContext } from '../context/GlobalContext';
+import { MovieContext } from '../context/GlobalContext';
+import MovieItem from '../components/MovieItem';
 
 const Favorites = () => {
-  const { favorites } = useContext(GlobalContext);
+  const { favorites } = useContext(MovieContext);
 
   return (
     <div>
       <h2>Your Favorite Movies</h2>
-      {favorites.length ? (
-        <ul>
-          {favorites.map(movie => (
-            <li key={movie.id}>{movie.title}</li>
-          ))}
-        </ul>
+      {favorites.length > 0 ? (
+        favorites.map(movie => <MovieItem key={movie.id} movie={movie} />)
       ) : (
-        <p>No favorite movies yet.</p>
+        <p>No favorite movies added yet.</p>
       )}
     </div>
   );

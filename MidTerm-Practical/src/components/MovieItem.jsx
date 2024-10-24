@@ -1,15 +1,17 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { MovieContext } from '../context/MovieContext';
 
 const MovieItem = ({ movie }) => {
-    return (
-        <div className="movie-item">
-            <h3>{movie.title}</h3>
-            <p>Release Date: {movie.releaseDate}</p>
-            <p>Rating: {movie.rating}</p>
-            <Link to={`/movie/${movie.id}`}>View Details</Link>
-        </div>
-    );
+  const { addToFavorites } = useContext(MovieContext);
+
+  return (
+    <div>
+      <h3>{movie.title}</h3>
+      <p>Release Date: {movie.releaseDate}</p>
+      <p>Rating: {movie.rating}</p>
+      <button onClick={() => addToFavorites(movie)}>Add to Favorites</button>
+    </div>
+  );
 };
 
 export default MovieItem;

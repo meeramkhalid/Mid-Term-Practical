@@ -1,24 +1,21 @@
 import React, { createContext, useState } from 'react';
 
-export const GlobalContext = createContext();
+export const MovieContext = createContext();
 
-export const GlobalProvider = ({ children }) => {
-    const [favorites, setFavorites] = useState([]);
-    const [theme, setTheme] = useState('light'); 
+export const MovieProvider = ({ children }) => {
+  const [favorites, setFavorites] = useState([]);
 
-    const addFavorite = (movie) => {
-        setFavorites((prevFavorites) => [...prevFavorites, movie]);
-    };
+  const addToFavorites = (movie) => {
+    setFavorites((prevFavorites) => [...prevFavorites, movie]);
+  };
 
-    const removeFavorite = (movieId) => {
-        setFavorites((prevFavorites) =>
-            prevFavorites.filter((movie) => movie.id !== movieId)
-        );
-    };
+  const removeFromFavorites = (id) => {
+    setFavorites((prevFavorites) => prevFavorites.filter(movie => movie.id !== id));
+  };
 
-    return (
-        <GlobalContext.Provider value={{ favorites, addFavorite, removeFavorite, theme, setTheme }}>
-            {children}
-        </GlobalContext.Provider>
-    );
+  return (
+    <MovieContext.Provider value={{ favorites, addToFavorites, removeFromFavorites }}>
+      {children}
+    </MovieContext.Provider>
+  );
 };

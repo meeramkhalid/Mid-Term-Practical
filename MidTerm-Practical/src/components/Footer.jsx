@@ -1,7 +1,7 @@
-import '../Styles/Footer.css';
+import React from 'react';
 
-const Footer = () => <footer>
-    <br> © Movie Explorer 2024</br>
-    this site is not affliated by imdb
-    </footer>;
+const Footer = () => {
+  return <footer>© 2024 Movie App</footer>;
+};
+
 export default Footer;
