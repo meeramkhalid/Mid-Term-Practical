@@ -1,9 +1,8 @@
 import React, { useContext } from 'react';
-import { MovieContext } from '../context/GlobalContext';
 import MovieItem from '../components/MovieItem';
 
 const Favorites = () => {
-  const { favorites } = useContext(MovieContext);
+  //const { favorites } = useContext(MovieContext);
 
   return (
     <div>

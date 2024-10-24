@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { MovieContext } from '../context/MovieContext';
 
 const MovieItem = ({ movie }) => {
   const { addToFavorites } = useContext(MovieContext);
