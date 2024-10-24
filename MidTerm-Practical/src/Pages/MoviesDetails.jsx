@@ -1,27 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
 
-const MovieDetailsPage = () => {
-    const { id } = useParams();
-    const [movie, setMovie] = useState(null);
+const MovieDetails = () => {
+  const { id } = useParams();
 
-    useEffect(() => {
-        fetch(`https://www.omdbapi.com/?i=${id}&apikey=YOUR_API_KEY`)
-            .then((response) => response.json())
-            .then((data) => setMovie(data));
-    }, [id]);
+  const movie = { title: 'The Godfather', releaseDate: '1972', id };
 
-    if (!movie) return <div>Loading...</div>;
-
-    return (
-        <div>
-            <h1>{movie.Title}</h1>
-            <p>Release Date: {movie.Released}</p>
-            <p>Rating: {movie.Rated}</p>
-            <p>{movie.Plot}</p>
-            <img src={movie.Poster} alt={movie.Title} />
-        </div>
-    );
+  return (
+    <div>
+      <h2>{movie.title}</h2>
+      <p>Release Date: {movie.releaseDate}</p>
+      <p>Movie ID: {id}</p>
+    </div>
+  );
 };
 
-export default MovieDetailsPage;
+export default MovieDetails;
+
