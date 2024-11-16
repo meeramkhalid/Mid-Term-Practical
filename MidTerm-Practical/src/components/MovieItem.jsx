@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 
 const MovieItem = ({ movie }) => {
-  const { addToFavorites } = useContext(MovieContext);
+ // const { addToFavorites } = useContext(MovieContext);
 
   return (
     <div>
